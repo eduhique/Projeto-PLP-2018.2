@@ -18,6 +18,7 @@ using namespace std;
 
 /*
 @author: João Pedro Barros Barbosa
+@author: Thayanne Luiza Victor Landim Sousa
 */
 
 int input_tam;
@@ -92,7 +93,7 @@ void decrypt_message(string input, unsigned long int d, long long int n){
     input += " ";
     string aux;
     int tam = 0;
-    for (int i = 0; i <= input.length(); i++) {
+    for (int i = 0; i < input.length(); i++) {
         if (input[i] == ' ') {
             tam++;
         }
@@ -100,10 +101,10 @@ void decrypt_message(string input, unsigned long int d, long long int n){
     long long int array[tam];
     int j = 0;
 
-    for (int i = 0; i <= input.length(); i++) {
+    for (int i = 0; i < input.length(); i++) {
         if (input[i] != ' ') aux += input[i];
         else {
-            if (j == tam -1){
+            if (j == tam){
                 break;
             }
             array[j++] = stoll(aux);
@@ -111,8 +112,7 @@ void decrypt_message(string input, unsigned long int d, long long int n){
         }
     }
 
-    int decrypted[tam]; 
-
+    int decrypted[tam];
     for(int i = 0; i < tam; i++){
         decrypted[i] = pow_and_mod(array[i], d, n);
         decrypted_message += (char)decrypted[i];
