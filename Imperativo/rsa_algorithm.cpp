@@ -1,10 +1,3 @@
-/** Criptografia RSA
- * Grupo: Eduardo Henrique
- *        Thayanne Sousa
- *        Joao Pedro
- *        Rafael Dantas
- *        Matheus Araujo
- **/
 #include <iostream>
 #include <string.h>
 #include <string>
@@ -16,6 +9,14 @@
 
 using namespace std;
 
+/** Criptografia RSA
+ * Grupo: Eduardo Henrique
+ *        Thayanne Sousa
+ *        Joao Pedro
+ *        Rafael Dantas
+ *        Matheus Araujo
+ **/
+ 
 /*
 @author: João Pedro Barros Barbosa
 @author: Thayanne Luiza Victor Landim Sousa

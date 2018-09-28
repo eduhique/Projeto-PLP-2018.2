@@ -5,6 +5,15 @@
 #include "isOptimusOptimizado.h"
 using namespace std;
 
+/**
+ * Criptografia RSA
+ * Grupo: Eduardo Henrique
+ *        Thayanne Sousa
+ *        Joao Pedro
+ *        Rafael Dantas
+ *        Matheus Araujo
+ **/
+
 /*
     @author: Matheus Silva Araujo
 */

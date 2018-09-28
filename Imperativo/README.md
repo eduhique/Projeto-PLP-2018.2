@@ -1,5 +1,5 @@
 # Criptografia RSA
-Sistema de criptografia RSA, realizando criptografia de mensagens recebidas por usuário utilizando manipulações de tabela ASCII, primality test, modular inverso, dentre outras técnicas de algoritmo.
+Sistema de criptografia RSA, realizando criptografia de mensagens recebidas por usuário utilizando manipulações de tabela ASCII, teste de primalidade, modular inverso, dentre outras técnicas de algoritmo.
 
 ## Como rodar
 

@@ -1,11 +1,3 @@
-/**
- * Criptografia RSA
- * Grupo: Eduardo Henrique
- *        Thayanne Sousa
- *        Joao Pedro
- *        Rafael Dantas
- *        Matheus Araujo
- **/
 #include <iostream>
 #include <string.h>
 #include <string>
@@ -14,6 +6,14 @@
 #include "keys_generator.h"
 #include "isOptimusOptimizado.h"
 using namespace std;
+/**
+ * Criptografia RSA
+ * Grupo: Eduardo Henrique
+ *        Thayanne Sousa
+ *        Joao Pedro
+ *        Rafael Dantas
+ *        Matheus Araujo
+ **/
 
 /*
      @author: Rafael Dantas Santos de Azevedo

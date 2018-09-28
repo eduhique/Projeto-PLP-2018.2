@@ -1,3 +1,8 @@
+#include <iostream>
+#include <stdio.h>
+#include <stdlib.h>
+#include "keys_generator.h"
+using namespace std;
 /**
  * Criptografia RSA
  * Grupo: Eduardo Henrique
@@ -6,11 +11,6 @@
  *        Rafael Dantas
  *        Matheus Araujo
  **/
-#include <iostream>
-#include <stdio.h>
-#include <stdlib.h>
-#include "keys_generator.h"
-using namespace std;
 
 /**
  * @author Eduardo Henrique Pontes Silva
