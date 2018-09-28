@@ -7,7 +7,11 @@
  *        Matheus Araujo
  **/
 #ifndef keys_generator_h   
-#define keys_generator_h  
+#define keys_generator_h 
+
+/**
+ * @author Eduardo Henrique Pontes Silva
+ * */
 
 extern unsigned long d;
 extern long long int n;

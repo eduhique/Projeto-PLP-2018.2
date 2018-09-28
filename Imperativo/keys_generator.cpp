@@ -12,6 +12,10 @@
 #include "keys_generator.h"
 using namespace std;
 
+/**
+ * @author Eduardo Henrique Pontes Silva
+ * */
+
 long e;
 unsigned long d;
 long long int n;
