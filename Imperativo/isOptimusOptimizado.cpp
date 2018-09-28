@@ -12,12 +12,13 @@ using namespace std;
  *        Joao Pedro
  *        Rafael Dantas
  *        Matheus Araujo
- **/
+ *
+ *  @author: Matheus Silva Araujo
+**/
 
-/*
-    @author: Matheus Silva Araujo
-*/
-
+/**
+ * Verifica se um numero é Primo.
+ * */
 int isPrime(int n)
 {
     if (n <= 1) return 0;

@@ -11,7 +11,6 @@ using namespace std;
  *        Rafael Dantas
  *        Matheus Araujo
  **/
-
 /**
  * @author Eduardo Henrique Pontes Silva
  * */

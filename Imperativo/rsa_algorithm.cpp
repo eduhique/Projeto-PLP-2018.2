@@ -15,12 +15,10 @@ using namespace std;
  *        Joao Pedro
  *        Rafael Dantas
  *        Matheus Araujo
- **/
- 
-/*
-@author: João Pedro Barros Barbosa
-@author: Thayanne Luiza Victor Landim Sousa
-*/
+ *
+ * @author: João Pedro Barros Barbosa
+ * @author: Thayanne Luiza Victor Landim Sousa
+**/
 
 int input_tam;
 long long int encrypted[100], decrypted[100];

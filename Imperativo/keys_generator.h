@@ -1,3 +1,6 @@
+#ifndef keys_generator_h   
+#define keys_generator_h 
+
 /**
  * Criptografia RSA
  * Grupo: Eduardo Henrique
@@ -6,9 +9,6 @@
  *        Rafael Dantas
  *        Matheus Araujo
  **/
-#ifndef keys_generator_h   
-#define keys_generator_h 
-
 /**
  * @author Eduardo Henrique Pontes Silva
  * */

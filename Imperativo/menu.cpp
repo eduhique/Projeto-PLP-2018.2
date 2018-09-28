@@ -13,12 +13,9 @@ using namespace std;
  *        Joao Pedro
  *        Rafael Dantas
  *        Matheus Araujo
- **/
-
-/*
-     @author: Rafael Dantas Santos de Azevedo
-*/
-
+ *
+ *    @author: Rafael Dantas Santos de Azevedo
+**/
 
 int main() 
 {
