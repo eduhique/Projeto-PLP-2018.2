@@ -6,27 +6,19 @@ calculaN p q = p * q
 totiente :: Int -> Int -> Int
 totiente p q = (p-1) * (q-1) 
 
-
+newRand = randomIO :: IO Int
+ 
 getE :: Int -> IO()
 getE tot = 
     do 
-        f1 <- randomIO :: IO Int
-        if f1 > 0
-            then 
-                if (gcd tot ((f1) `mod` tot + 2)) == 1 
-                    then
-                        do
-                            putStr ("\n  e: " ++ (show ((f1) `mod` tot + 2)) ++ "\n")
-                            getD tot ((f1) `mod` tot + 2) 0 
+        f1 <- newRand
+        let aux = (abs(f1)) `mod` tot + 2
+        if (gcd tot aux) == 1 
+            then
+                do
+                    putStr ("\n  e: " ++ (show aux) ++ "\n")
+                    getD tot aux
                     else getE tot
-
-        else if gcd tot ((-f1) `mod` tot + 2) == 1 
-                then 
-                    do 
-                        putStr ("\n  e: " ++ (show ((-f1) `mod` tot + 2)) ++ "\n")
-                        getD tot ((-f1) `mod` tot + 2) 0
-
-                else getE tot
 
 getD :: Int -> Int -> Int -> IO()
 getD to e aux = 
