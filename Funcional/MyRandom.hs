@@ -8,7 +8,7 @@ import System.IO.Unsafe
 
 getBigPrime :: Int -> Int
 getBigPrime n | prime(n) == True = n
-              | otherwise = getBigPrime(unsafePerformIO((randomRIO (7000, 15000))))
+              | otherwise = getBigPrime(unsafePerformIO((randomRIO (1000, 5000)))) -- Range limitador do tamnho do numero Primo
                                                               
 divides :: Int -> Int -> Bool
 divides d n = rem n d == 0

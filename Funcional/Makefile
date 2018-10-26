@@ -15,7 +15,7 @@ help:
 	@echo "    "
 
 install: 
-	cabal update && cabal install random
+	cabal update && cabal install random && cabal install split
 .PHONY: install
 
 compile:
