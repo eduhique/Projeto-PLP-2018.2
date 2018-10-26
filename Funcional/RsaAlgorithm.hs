@@ -50,7 +50,6 @@ doBoth ent d n e = do
     putStr ("Mensagem Criptografada: ")
     let criptedArr = encrypt_message str_to_int_arr e n 
     print (criptedArr);    --Criptografa
-    let int_str_to_int_arr = (criptedArr) -- Recebe os números em string e transforma em array de int
     putStrLn ("Descriptografando (ou não)...")
     putStr ("Mensagem Descriptografada (ou não): ")
-    print (decrypt_message int_str_to_int_arr d n);    --Decriptografa
+    print (decrypt_message criptedArr d n);    --Decriptografa
