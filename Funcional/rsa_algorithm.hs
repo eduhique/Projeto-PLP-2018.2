@@ -22,15 +22,33 @@ intToCh val = Chard.chr val
 main :: IO()
 main = do
     
-    inp <- getLine; --Recebe tudo q voce quiser dar
-    d <- readLn;    --d para decrip e para crip
-    n <- readLn;    --n para ambos
+    --Cript or Decript
+    -- inp <- getLine; --Recebe tudo q voce quiser dar
+    -- d <- readLn;    --d para decrip e para crip
+    -- n <- readLn;    --n para ambos
 
-    let zap = strArr2intArr inp -- Recebe a mensagem textual e transforma pra ascii
-    let hol = stringToIntArr inp -- Recebe os números em string e transforma em array de int
+    -- let str_to_int_arr = strArr2intArr inp -- Recebe a mensagem textual e transforma pra ascii
+    -- let int_str_to_int_arr = stringToIntArr inp -- Recebe os números em string e transforma em array de int
     
-    print (zap)
-    -- print (hol)
+    -- print (str_to_int_arr)
+    -- -- print (int_str_to_int_arr)
+    
+    -- -- print (encrypt_message str_to_int_arr d n);    --Criptografa
+    -- print (decrypt_message int_str_to_int_arr d n);    --Decriptografa
+    --Cript or Decript
 
-    -- print (encrypt_message zap d n);    --Criptografa
-    print (decrypt_message hol d n);    --Decriptografa
+    -- Cript e Decript
+    print ("mens ");
+    inp <- getLine; --Recebe tudo q voce quiser dar
+    print ("d");
+    d <- readLn;    
+    print ("n");
+    n <- readLn;    --n para ambos
+    print ("e");
+    e <- readLn;    --n para ambos
+    
+    let str_to_int_arr = strArr2intArr inp -- Recebe a mensagem textual e transforma pra ascii
+    print (encrypt_message str_to_int_arr e n);    --Criptografa
+    let int_str_to_int_arr = (encrypt_message str_to_int_arr e n) -- Recebe os números em string e transforma em array de int
+    print (decrypt_message int_str_to_int_arr d n);    --Decriptografa
+    --Cript e Decritp
