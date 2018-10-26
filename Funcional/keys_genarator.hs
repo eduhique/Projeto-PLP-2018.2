@@ -1,3 +1,10 @@
+module KeysGenerator (
+    calculaN,
+    getE,
+    getD,
+    generateKeys
+)
+
 import System.Random
 
 calculaN :: Int -> Int -> Int

@@ -8,14 +8,20 @@ help:
 	@echo "        Roda o projeto apresentando o menu."
 	@echo "    "
 	@echo "    compile"
-	@echo "        Compila todos os arquivos cpp do projeto gerando um arquivo de saida ./a.out"
+	@echo "        Compila os arquivos"
+	@echo "    "
+	@echo "    install"
+	@echo "        Instala a biblioteca random para haskell"
 	@echo "    "
 
+install: 
+	cabal update && cabal install random
+.PHONY: install
 
 compile:
-	ghc *.hs
+	ghc menu.hs -o rsa
 .PHONY: compile
 
 run: compile
-	ls
+	./rsa
 .PHONY: compile

@@ -1,3 +1,10 @@
+module RSA (
+   encrypt_message,
+   decrypt_message,
+   strArr2intArr,
+   stringToIntArr
+)
+
 import Data.List.Split as Split
 import Data.Char as Chard
 
