@@ -1,3 +1,4 @@
+import KeysGenarator
 import System.IO
 
 main :: IO ()
@@ -19,12 +20,11 @@ main = do
 							putStr ("Insira os primos a seguir: \n\nInsira o primo 1: ")
 							hFlush stdout
 							getLine
-							primo1 <- getLine;
+							primo1 <- readLn;
 							putStr ("\nInsira o primo 2: ")
 							hFlush stdout
-							primo2 <- getLine;
-
-							putStr (show(primo1)++ "||"++ show(primo2))
+							primo2 <- readLn;
+							generateKeys primo1 primo2
 							main
 					'2' ->
 						do

@@ -1,9 +1,9 @@
-module KeysGenerator (
+module KeysGenarator (
     calculaN,
     getE,
     getD,
     generateKeys
-)
+)where
 
 import System.Random
 
