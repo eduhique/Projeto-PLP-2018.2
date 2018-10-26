@@ -16,39 +16,47 @@ stringToIntArr inp = map read (Split.splitOn " " inp)
 strArr2intArr :: String -> [Integer]
 strArr2intArr message = [toInteger (Chard.ord x) | x <- message]
 
+arrayToString :: [Integer] -> String
+arrayToString [] = ""
+arrayToString (x : xs) = show x ++ " " ++ arrayToString xs
+
 intToCh :: Int -> Char
 intToCh val = Chard.chr val
 
-main :: IO()
-main = do
-    
-    --Cript or Decript
-    -- inp <- getLine; --Recebe tudo q voce quiser dar
-    -- d <- readLn;    --d para decrip e para crip
-    -- n <- readLn;    --n para ambos
+cript :: IO()
+cript = do
+    putStr ("Mensagem: ")
+    inp <- getLine
+    putStr ("e = ")
+    e <- readLn
+    putStr ("n = ")
+    n <- readLn
+    let str_to_int_arr = strArr2intArr inp -- Recebe a mensagem textual e transforma pra ascii
+    print (arrayToString (encrypt_message str_to_int_arr e n));
 
-    -- let str_to_int_arr = strArr2intArr inp -- Recebe a mensagem textual e transforma pra ascii
-    -- let int_str_to_int_arr = stringToIntArr inp -- Recebe os números em string e transforma em array de int
-    
-    -- print (str_to_int_arr)
-    -- -- print (int_str_to_int_arr)
-    
-    -- -- print (encrypt_message str_to_int_arr d n);    --Criptografa
-    -- print (decrypt_message int_str_to_int_arr d n);    --Decriptografa
-    --Cript or Decript
+decrip :: IO()
+decrip = do
+    putStr ("Mensagem: ")
+    inp <- getLine
+    putStr ("d = ")
+    d <- readLn
+    putStr ("n = ")
+    n <- readLn
+    let int_str_to_int_arr = stringToIntArr inp -- Recebe os números em string e transforma em array de int
+    print (decrypt_message int_str_to_int_arr d n);    --Decriptografa
 
-    -- Cript e Decript
-    print ("mens ");
+doBoth :: IO()
+doBoth = do
+    putStr ("Mensagem: ")
     inp <- getLine; --Recebe tudo q voce quiser dar
-    print ("d");
+    putStr ("d = ")
     d <- readLn;    
-    print ("n");
+    putStr ("n = ")
     n <- readLn;    --n para ambos
-    print ("e");
+    putStr ("e = ")
     e <- readLn;    --n para ambos
     
     let str_to_int_arr = strArr2intArr inp -- Recebe a mensagem textual e transforma pra ascii
     print (encrypt_message str_to_int_arr e n);    --Criptografa
     let int_str_to_int_arr = (encrypt_message str_to_int_arr e n) -- Recebe os números em string e transforma em array de int
     print (decrypt_message int_str_to_int_arr d n);    --Decriptografa
-    --Cript e Decritp
