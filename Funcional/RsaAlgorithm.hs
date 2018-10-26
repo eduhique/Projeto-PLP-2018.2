@@ -32,16 +32,24 @@ intToCh val = Chard.chr val
 cript :: String -> Integer -> Integer -> IO()
 cript inp e n = do
     let str_to_int_arr = strArr2intArr inp -- Recebe a mensagem textual e transforma pra ascii
+    putStrLn ("Criptografando...")
+    putStr ("Mensagem Criptografada: ")
     print (arrayToString (encrypt_message str_to_int_arr e n));
 
 decrip :: String -> Integer -> Integer -> IO()
 decrip ent d n = do
     let int_str_to_int_arr = stringToIntArr ent -- Recebe os números em string e transforma em array de int
+    putStrLn ("Descriptografando...")
+    putStr ("Mensagem Descriptografada (ou não): ")
     print (decrypt_message int_str_to_int_arr d n);    --Decriptografa
 
 doBoth :: String -> Integer -> Integer -> Integer -> IO()
 doBoth ent d n e = do
     let str_to_int_arr = strArr2intArr ent -- Recebe a mensagem textual e transforma pra ascii
+    putStrLn ("Criptografando...")
+    putStr ("Mensagem Criptografada: ")
     print (encrypt_message str_to_int_arr e n);    --Criptografa
     let int_str_to_int_arr = (encrypt_message str_to_int_arr e n) -- Recebe os números em string e transforma em array de int
+    putStrLn ("Descriptografando (ou não)...")
+    putStr ("Mensagem Descriptografada (ou não): ")
     print (decrypt_message int_str_to_int_arr d n);    --Decriptografa
