@@ -1,3 +1,9 @@
+module RsaAlgorithm (
+    cript,
+    decrip,
+    doBoth
+) where
+
 import Data.List.Split as Split
 import Data.Char as Chard
 
@@ -23,40 +29,19 @@ arrayToString (x : xs) = show x ++ " " ++ arrayToString xs
 intToCh :: Int -> Char
 intToCh val = Chard.chr val
 
-cript :: IO()
-cript = do
-    putStr ("Mensagem: ")
-    inp <- getLine
-    putStr ("e = ")
-    e <- readLn
-    putStr ("n = ")
-    n <- readLn
+cript :: String -> Integer -> Integer -> IO()
+cript inp e n = do
     let str_to_int_arr = strArr2intArr inp -- Recebe a mensagem textual e transforma pra ascii
     print (arrayToString (encrypt_message str_to_int_arr e n));
 
-decrip :: IO()
-decrip = do
-    putStr ("Mensagem: ")
-    inp <- getLine
-    putStr ("d = ")
-    d <- readLn
-    putStr ("n = ")
-    n <- readLn
-    let int_str_to_int_arr = stringToIntArr inp -- Recebe os números em string e transforma em array de int
+decrip :: String -> Integer -> Integer -> IO()
+decrip ent d n = do
+    let int_str_to_int_arr = stringToIntArr ent -- Recebe os números em string e transforma em array de int
     print (decrypt_message int_str_to_int_arr d n);    --Decriptografa
 
-doBoth :: IO()
-doBoth = do
-    putStr ("Mensagem: ")
-    inp <- getLine; --Recebe tudo q voce quiser dar
-    putStr ("d = ")
-    d <- readLn;    
-    putStr ("n = ")
-    n <- readLn;    --n para ambos
-    putStr ("e = ")
-    e <- readLn;    --n para ambos
-    
-    let str_to_int_arr = strArr2intArr inp -- Recebe a mensagem textual e transforma pra ascii
+doBoth :: String -> Integer -> Integer -> Integer -> IO()
+doBoth ent d n e = do
+    let str_to_int_arr = strArr2intArr ent -- Recebe a mensagem textual e transforma pra ascii
     print (encrypt_message str_to_int_arr e n);    --Criptografa
     let int_str_to_int_arr = (encrypt_message str_to_int_arr e n) -- Recebe os números em string e transforma em array de int
     print (decrypt_message int_str_to_int_arr d n);    --Decriptografa

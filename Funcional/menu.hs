@@ -1,4 +1,5 @@
 import KeysGenarator
+import RsaAlgorithm
 import System.IO
 
 main :: IO ()
@@ -37,16 +38,16 @@ main = do
 		'2' ->
 			do
 				putStr ("\nInsira a mensagem: ")
+				hFlush stdout
 				getLine
 				mensagem <- getLine
 				putStr ("\nInsira a Chave pública: \n  n: ")
 				hFlush stdout
-				n <- getLine
+				n <- readLn
 				putStr ("  e: ")
 				hFlush stdout
-				e <- getLine
-				--Falta o metodo encrypt
-				putStrLn ( mensagem ++"||"++show(n)++ "||"++show(e))
+				e <- readLn
+				cript mensagem e n
 				main
 		'3' ->
 			do
@@ -56,12 +57,11 @@ main = do
 				mensagem2 <- getLine
 				putStr ("\nInsira a Chave Privada:  \n  d: ")
 				hFlush stdout
-				d <- getLine
+				d <- readLn
 				putStr "  n: "
 				hFlush stdout
-				n2 <- getLine
-				--Falta o metodo decrypt
-				putStrLn ( mensagem2 ++"||"++show(d)++ "||"++show(n2))
+				n2 <- readLn
+				decrip mensagem2 d n2
 				main
 		'4' ->
 			do
@@ -71,15 +71,14 @@ main = do
 				mensagem3 <- getLine;
 				putStr ("\nInsira a Chaves:  \n  d: ")
 				hFlush stdout
-				d2 <- getLine
+				d2 <- readLn
 				putStr "  n: "
 				hFlush stdout
-				n3 <- getLine
+				n3 <- readLn
 				putStr ("  e: ")
 				hFlush stdout
-				e2 <- getLine
-				--rsa_algorithm
-				putStrLn ( mensagem3 ++"||"++show(d2)++ "||"++show(n3)++"||"++show(e2))
+				e2 <- readLn
+				doBoth mensagem3 d2 n3 e2
 				main
 		'5' ->
 			return ()
