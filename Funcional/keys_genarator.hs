@@ -17,7 +17,7 @@ getE tot =
             then
                 do
                     putStr ("\n  e: " ++ (show aux) ++ "\n")
-                    getD tot aux
+                    getD tot aux 0
                     else getE tot
 
 getD :: Int -> Int -> Int -> IO()
