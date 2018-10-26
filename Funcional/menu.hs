@@ -1,6 +1,7 @@
 import KeysGenarator
 import RsaAlgorithm
 import System.IO
+import MyRandom
 
 main :: IO ()
 main = do
@@ -29,7 +30,10 @@ main = do
 							main
 					'2' ->
 						do
-							--Falta metódos para gerar os primos
+							let primo3 = getBigPrime 4
+							let primo4 = getBigPrime 4
+							generateKeys primo3 primo4
+							getLine --Evita que o leitor de entrada do usuario receba espacos em branco
 							main
 					_ ->
 						do
