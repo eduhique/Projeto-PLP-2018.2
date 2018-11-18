@@ -1,8 +1,15 @@
 basicOne() :-
-    random(1, 10000, A),
-    writeln(A),
-    isPrime2(A).
+    random(10000000, 1000000000, A),
+    test(A).
 
+test(A) :-
+    (   isPrime2(A) ->
+        writeln(A),
+        true
+    ;   repeat,
+        random(10000000, 1000000000, B),
+        test(B)
+    ).
 
 isPrime2(2) :-
     !.
