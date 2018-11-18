@@ -12,9 +12,9 @@ getE(Totiente,Return):-
         getE(Totiente,Return).
 
 getD(Totiente, E, Aux, Return):-
-        CalAux is (E * Aux) mod Totiente,
-        CalAux =:= 1 -> Return is Aux;
-        getD(Totiente, E, (Aux + 1), Return).
+        (E * Aux) mod Totiente =:= 1 -> Return is Aux;
+        Aux2 is Aux + 1,
+        getD(Totiente, E, Aux2, Return).
 
 input(Number):-
     read_line_to_codes(user_input, Codes),
@@ -26,13 +26,13 @@ main:-
     input(N1),
     write("Insira o Primo 2: "),
     input(N2),
-    write("  Primo 1: "), writeln(N1), write("  Primo 2: "), writeln(N2),
     calculaN(N1,N2,NN),
-    write("\nChave pública: \n  n: "), writeln(NN),
     totiente(N1,N2, Tot),
     getE(Tot,EE),
-    write("  e: "),writeln(EE),
     getD(Tot,EE,0,DD),
     nl,
+    write("\nChave pública: \n  n: "), writeln(NN),
+    write("  e: "),writeln(EE),
     write("\nChave Privada: \n  d: "), writeln(DD),
-    nl,nl.
+    write("  Primo 1: "), writeln(N1), write("  Primo 2: "), writeln(N2),
+    nl,nl, main.
