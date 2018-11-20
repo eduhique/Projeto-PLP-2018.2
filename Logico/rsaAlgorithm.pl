@@ -8,10 +8,10 @@
 ).
 
 stringToAscii(S, L):-
-    atom_codes(S, L).
+    atom_codes(L, S).
 
 asciiToString(L, S):-
-    atom_codes(S, L).
+    atom_codes(L, S).
 
 listToString(L, S):-
     atomic_list_concat(L, '', Atom),
