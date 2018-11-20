@@ -1,12 +1,16 @@
+:- use_module(keysGenarator).
+:- use_module(rsaAlgorithm).
+:- use_module(basicOne).
 :- initialization menu.
-:- [keysGenarator,rsaAlgorithm,basicOne].
 
 input(Number):-
     read_line_to_codes(user_input, Codes),
     string_to_atom(Codes, Atom),
     atom_number(Atom, Number).
 
-menu :- write("\n=====Menu=====\n\n(1) Gerar chaves\n(2) Criptografar mensagem"),
+menu :-
+        set_prolog_stack(global, limit(100 000 000 000)),
+        write("\n=====Menu=====\n\n(1) Gerar chaves\n(2) Criptografar mensagem"),
         write("\n(3) Descriptografar mensagem\n(4) Criptografar e Descriptografar\n(5) Sair"), nl,
         write("\nOpção => "), input(OP),
         executar(OP).
@@ -14,7 +18,7 @@ menu :- write("\n=====Menu=====\n\n(1) Gerar chaves\n(2) Criptografar mensagem")
 executar(OP) :-
   OP == 1, gerarChaves, menu;
 	OP == 2, criptografar, menu;
-  OP == 3, descriptografar, menu;
+  OP == 3, descriptografar(_), menu;
   OP == 4, rsa, menu;
   OP == 5, true;
   write("\n\nOpção Inválida!"), menu.
@@ -32,17 +36,20 @@ gerarChaves :-
     basicOne(PRIMO2),
     geraKeys(PRIMO1,PRIMO2))).
 
-criptografar :- write("\nInsira a mensagem: "), read_line_to_string(user_input, MENSAGEM),
+criptografar (CODIFICADA):- write("\nInsira a mensagem: "), read_line_to_string(user_input, MENSAGEM),
 				write("\nInsira a Chave pública: \n  n: "), nl, input(N), nl,
 				write("  \ne: "), nl, input(E), nl, writeln("Criptografando..."),
-        stringToAscii(LISTA, MENSAGEM), write(MENSAGEM), encrypt(LISTA, CODIFICADA),
+        stringToAscii(LISTA, MENSAGEM), write(MENSAGEM), encrypt(LISTA, CODIFICADA, E, N),
         write("Mensagem Criptografada: "), write(CODIFICADA).
 
 
 descriptografar :- write("\n\nInsira a mensagem criptografada: "), nl, read(MENSAGEM2), nl,
-				   write("\nInsira a Chave Privada:  \n  d: "), nl, read(D), nl,
-				   write("  n: "), nl, read(N2), nl,  write("Falta metodo decrypt").
+				  write("\nInsira a Chave Privada:  \n  d: "), nl, read(D), nl,
+				  write("  n: "), nl, read(N), nl,
+          decrypt(CODIFICADA, DECODIFICADA, D, N),
+          asciiToString(DECODIFICADA, RESULTADO_STRING),
+          write('decodificada: '), write(RESULTADO_STRING).
 
 rsa :-
-  write("\n\nInsira a mensagem: "), nl, read(MENSAGEM3), nl, write("\nInsira a Chaves:  \n  d: "), nl,
-	read(D2), nl, write("  n: "), nl, read(N3), nl, write("  e: "), nl, read(E2), nl, write("Falta o RSA").
+  write("\n\nInsira a mensagem: "), nl, read(MENSAGEM), nl, write("\nInsira a Chaves:  \n  d: "), nl,
+	input(D), nl, write("  n: "), nl, input(N), nl, write("  e: "), nl, input(E), nl, write("Falta o RSA").
