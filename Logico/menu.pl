@@ -21,7 +21,7 @@ executar(OP) :-
   OP == 3, descriptografar, menu;
   OP == 4, rsa, menu;
   OP == 5, true;
-  write("\n\nOpção Inválida!"), menu.
+  writeln("\n\nOpção Inválida!"), menu.
 
 gerarChaves :-
   write("\n(1)Inserir primos\n(2)Gerar automaticamente\n\nOpção => "), input(OP2) -> (
@@ -37,19 +37,33 @@ gerarChaves :-
     geraKeys(PRIMO1,PRIMO2))).
 
 criptografar:- write("\nInsira a mensagem: "), read_line_to_string(user_input, MENSAGEM),
-				write("\nInsira a Chave pública: \n  n: "), nl, input(N), nl,
-				write("  \ne: "), nl, input(E), nl, writeln("Criptografando..."),
-        stringToAscii(LISTA, MENSAGEM), write(MENSAGEM), encrypt(LISTA, CODIFICADA, E, N),
-        write("Mensagem Criptografada: "), write(CODIFICADA).
+				write("\nInsira a Chave pública: \n  n: "), input(N), nl,
+				write("  e: "), input(E), nl, writeln("Criptografando..."),
+        stringToAscii(LISTA, MENSAGEM), encrypt(LISTA, CODIFICADA, E, N),
+        listToString(CODIFICADA, RETURN),
+        write("Mensagem Criptografada: "), writeln(RETURN).
 
 
-descriptografar :- write("\n\nInsira a mensagem criptografada: "), nl, read(CODIFICADA), nl,
-				  write("\nInsira a Chave Privada:  \n  d: "), nl, read(D), nl,
-				  write("  n: "), nl, read(N), nl,
+descriptografar :- write("\n\nInsira a mensagem criptografada: "),
+          read_line_to_string(user_input, MENSAGEM),
+          stringToList(MENSAGEM, LIST),
+          strArToIntAr(LIST, CODIFICADA),
+				  write("\nInsira a Chave Privada:  \n  d: "), input(D), nl,
+				  write("  n: "), input(N), nl,
+          writeln("Decriptografando..."),
           decrypt(CODIFICADA, DECODIFICADA, D, N),
-          asciiToString(DECODIFICADA, RESULTADO_STRING),
-          write('decodificada: '), write(RESULTADO_STRING).
+          asciiToString(DECODIFICADA, RETURN),
+          write("Mensagem Decriptografada: "), writeln(RETURN).
 
 rsa :-
-  write("\n\nInsira a mensagem: "), nl, read(MENSAGEM), nl, write("\nInsira a Chaves:  \n  d: "), nl,
-	input(D), nl, write("  n: "), nl, input(N), nl, write("  e: "), nl, input(E), nl, write("Falta o RSA").
+  write("\n\nInsira a mensagem: "),
+  read_line_to_string(user_input, MENSAGEM), nl,
+  write("\nInsira a Chaves:  \n  d: "),	input(D), nl,
+  write("  n: "), input(N), nl, write("  e: "), input(E), nl,
+  stringToAscii(LISTA, MENSAGEM), encrypt(LISTA, CODIFICADA, E, N),
+  listToString(CODIFICADA, RETURN),
+  write("Mensagem Criptografada: "), writeln(RETURN),
+  writeln("Decriptografando..."),
+  decrypt(CODIFICADA, DECODIFICADA, D, N),
+  asciiToString(DECODIFICADA, RETURN_DECRIP),
+  write("Mensagem Decriptografada: "), writeln(RETURN_DECRIP).
