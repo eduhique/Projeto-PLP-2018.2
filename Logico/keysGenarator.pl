@@ -1,5 +1,3 @@
-:- initialization main.
-
 calculaN(P,Q,R):- R is P*Q.
 
 totiente(P,Q,R):- R is (P-1)*(Q-1).
@@ -21,18 +19,13 @@ input(Number):-
     string_to_atom(Codes, Atom),
     atom_number(Atom, Number).
 
-main:-
-    write("Insira o Primo 1: "),
-    input(N1),
-    write("Insira o Primo 2: "),
-    input(N2),
-    calculaN(N1,N2,NN),
-    totiente(N1,N2, Tot),
-    getE(Tot,EE),
-    getD(Tot,EE,0,DD),
-    nl,
-    write("\nChave pública: \n  n: "), writeln(NN),
-    write("  e: "),writeln(EE),
-    write("\nChave Privada: \n  d: "), writeln(DD),
-    write("  Primo 1: "), writeln(N1), write("  Primo 2: "), writeln(N2),
-    nl,nl, main.
+geraKeys(P,Q):- 
+        calculaN(P,Q,N),
+        totiente(P,Q, Tot),
+        getE(Tot,E),
+        getD(Tot,E,0,D),
+        nl,
+        write("\nChave pública: \n  n: "), writeln(N),
+        write("  e: "),writeln(E),
+        write("\nChave Privada: \n  d: "), writeln(D),
+        write("  Primo 1: "), writeln(P), write("  Primo 2: "), writeln(Q).
