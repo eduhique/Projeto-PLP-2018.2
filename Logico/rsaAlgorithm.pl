@@ -11,7 +11,7 @@ stringToAscii(S, L):-
     atom_codes(S, L).
 
 asciiToString(L, S):-
-    format("~s~n", [L]).
+    atom_codes(S, L).
 
 listToString(L, S):-
     atomic_list_concat(L, '', Atom),
