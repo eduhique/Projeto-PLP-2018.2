@@ -1,15 +1,18 @@
-basicOne() :-
-    random(10000000, 1000000000, A),
-    test(A).
+:- module(
+    'basicOne', 
+    [basicOne/1,
+    isPrime2/1]
+).
 
-test(A) :-
-    (   isPrime2(A) ->
-        writeln(A),
-        true
-    ;   repeat,
-        random(10000000, 1000000000, B),
-        test(B)
-    ).
+basicOne(Result) :-
+    random(1000, 20000, A),
+    test(A,Result1), Result is Result1.
+
+test(A, Result) :-
+        isPrime2(A) ->
+        Result is A;
+        random(1000, 20000, B),
+        test(B,Result).
 
 isPrime2(2) :-
     !.
