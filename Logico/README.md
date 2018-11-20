@@ -23,7 +23,7 @@ No menu se terá 5 opções. No primeiro acesso, é necessário gerar as chaves 
 
 - **(2)** Criptografa uma mensagem, ele irá usar a chave pública, para isso copie seu **e** e **n** e insira quando for pedido.
 
-- **(3)** Descriptografa uma mensagem. Recebe a mensagem criptografada exatamente como ela é imprimida pelo método **(2)**, copie e cole sua mensagem criptograda. Ele irá usar a chave privada, para isso copie seu **d** e **n** e insira quando for pedido.
+- **(3)** Descriptografa uma mensagem. Recebe a mensagem criptografada exatamente como ela é imprimida pelo método *(2)*, copie e cole sua mensagem criptograda. Ele irá usar a chave privada, para isso copie seu **d** e **n** e insira quando for pedido.
 
 - **(4)** Realiza de maneira simultânea a criptografia e descriptografia.
 
