@@ -20,13 +20,13 @@ executar(OP) :-
 	OP == 2, criptografar, menu;
   OP == 3, descriptografar, menu;
   OP == 4, rsa, menu;
-  OP == 5, true;
+  OP == 5, true, halt(0);
   writeln("\nOpção Inválida!"), menu.
 
 gerarChaves :-
   write("\n(1)Inserir primos\n(2)Gerar automaticamente\n\nOpção => "), input(OP2) -> (
 	OP2 == 1 -> (
-    write("\nInsira os primos a seguir: \n\nInsira o primo 1: "), input(PRIMO1), nl,
+    write("\nInsira os primos a seguir: \n\nInsira o primo 1: "), input(PRIMO1),
   	write("Insira o primo 2: "), input(PRIMO2),
     (isPrime(PRIMO1),isPrime(PRIMO2),PRIMO1>=5,PRIMO2>=5) -> (
     geraKeys(PRIMO1,PRIMO2));
@@ -36,8 +36,8 @@ gerarChaves :-
     geraKeys(PRIMO1,PRIMO2))).
 
 criptografar:- write("\nInsira a mensagem: "), read_line_to_string(user_input, MENSAGEM),
-	write("\nInsira a Chave pública: \n  n: "), input(N), nl,
-	write("  e: "), input(E), nl, writeln("Criptografando..."),
+	write("\nInsira a Chave pública: \n  n: "), input(N),
+	write("  e: "), input(E), nl, writeln("Criptografando..."),nl,
   ultraCript(MENSAGEM, RETURN,_, E, N),
   write("Mensagem Criptografada: "), writeln(RETURN).
 
@@ -47,9 +47,9 @@ descriptografar :- write("\nInsira a mensagem criptografada: "),
   stringToList(MENSAGEM, LIST),
   strArToIntAr(LIST, CODIFICADA),
 	write("\nInsira a Chave Privada:  \n  d: "), input(D), nl,
-	write("  n: "), input(N), nl,
+	write("  n: "), input(N),
   writeln("Descriptografando..."),
-  decryptToStr(CODIFICADA, D, N, RETURN),
+  decryptToStr(CODIFICADA, D, N, RETURN),nl,
   write("Mensagem Decriptografada: "), writeln(RETURN).
 
 rsa :-
@@ -58,7 +58,7 @@ rsa :-
   write("\nInsira a Chaves:  \n  d: "),	input(D), nl,
   write("  n: "), input(N), nl, write("  e: "), input(E), nl,
   ultraCript(MENSAGEM, RETURN_ENCRIP,CODIFICADA, E, N),
-  write("Mensagem Criptografada: "), writeln(RETURN_ENCRIP),
+  write("Mensagem Criptografada: "), writeln(RETURN_ENCRIP),nl,
   writeln("Descriptografando..."),
   decryptToStr(CODIFICADA, D, N, RETURN_DECRIP),
-  write("Mensagem Decriptografada: "), writeln(RETURN_DECRIP).
+  writeln("Mensagem Decriptografada (ou não): "), writeln(RETURN_DECRIP).
