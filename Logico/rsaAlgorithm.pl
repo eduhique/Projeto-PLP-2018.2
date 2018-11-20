@@ -8,7 +8,7 @@
 ).
 
 stringToAscii(S, L):-
-    atom_codes(L, S).
+    atom_codes(S, L).
 
 asciiToString(L, S):-
     format("~s~n", [L]).
@@ -16,8 +16,8 @@ asciiToString(L, S):-
 listToString(L, S):-
     atomic_list_concat(L, '', Atom),
     atom_string(Atom, S).
-    encrypt([], [], _, _).
 
+encrypt([], [], _, _).
 encrypt([H|T], [X|Result_list], E, N):-
     X is mod((H **  E), N),
     encrypt(T, Result_list, E, N).

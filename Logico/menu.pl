@@ -18,7 +18,7 @@ menu :-
 executar(OP) :-
   OP == 1, gerarChaves, menu;
 	OP == 2, criptografar, menu;
-  OP == 3, descriptografar(_), menu;
+  OP == 3, descriptografar, menu;
   OP == 4, rsa, menu;
   OP == 5, true;
   write("\n\nOpção Inválida!"), menu.
@@ -36,14 +36,14 @@ gerarChaves :-
     basicOne(PRIMO2),
     geraKeys(PRIMO1,PRIMO2))).
 
-criptografar (CODIFICADA):- write("\nInsira a mensagem: "), read_line_to_string(user_input, MENSAGEM),
+criptografar:- write("\nInsira a mensagem: "), read_line_to_string(user_input, MENSAGEM),
 				write("\nInsira a Chave pública: \n  n: "), nl, input(N), nl,
 				write("  \ne: "), nl, input(E), nl, writeln("Criptografando..."),
         stringToAscii(LISTA, MENSAGEM), write(MENSAGEM), encrypt(LISTA, CODIFICADA, E, N),
         write("Mensagem Criptografada: "), write(CODIFICADA).
 
 
-descriptografar :- write("\n\nInsira a mensagem criptografada: "), nl, read(MENSAGEM2), nl,
+descriptografar :- write("\n\nInsira a mensagem criptografada: "), nl, read(CODIFICADA), nl,
 				  write("\nInsira a Chave Privada:  \n  d: "), nl, read(D), nl,
 				  write("  n: "), nl, read(N), nl,
           decrypt(CODIFICADA, DECODIFICADA, D, N),
